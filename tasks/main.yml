@@ -1,0 +1,17 @@
+---
+- name: Installling the package with the name "{{ web }}"
+  yum:
+   name: "{{ web }}"
+   state: present
+
+- name: Creating the Index file
+  template:
+   src: "{{ web }}.j2"
+   dest: "{{ location }}/index.html"
+
+- name: Copy a static file
+  copy:
+   src: mayank.html
+   dest: "{{ location }}/mayank.html"
+  notify: Starting the service of "{{ svc_name }}"
+

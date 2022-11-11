@@ -1,0 +1,7 @@
+---
+- name: Starting the service of "{{ svc_name }}"
+  service:
+   name: "{{ svc_name }}"
+   state: started
+   enabled: true
+
